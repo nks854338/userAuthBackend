@@ -7,6 +7,15 @@ const userRoute = require("./routes/user");
 
 const port = process.env.PORT || 5000;
 
+app.use(cors({
+  origin: "https://user-auth-frontend-nine.vercel.app/",
+  method: ['GET', 'POST'],
+  credentials:true,
+  allowedHeaders: "Content-Type, Authorization",
+}));
+
+app.options('*', cors()); 
+
 mongoose
   .connect(
     "mongodb+srv://nks854338:Nandani50%25@students.a0ydx.mongodb.net/userAuth"
