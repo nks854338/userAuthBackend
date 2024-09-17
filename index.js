@@ -9,8 +9,8 @@ const port = process.env.PORT || 5000;
 
 app.use(cors({
   origin: "https://user-auth-frontend-nine.vercel.app",
-  method: ['GET', 'POST'],
-  credentials:true,
+  methods: ['GET', 'POST'],
+  credentials: true, 
   allowedHeaders: "Content-Type, Authorization",
 }));
 

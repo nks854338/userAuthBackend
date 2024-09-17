@@ -33,7 +33,14 @@ async function handleUserLogin(req, res) {
   }
 
   const token = setUser(user);
-  res.cookie("uid", token);
+
+  // Setting cookie with SameSite=None and Secure attributes
+  res.cookie("uid", token, {
+    httpOnly: true, // Prevents JavaScript access
+    secure: process.env.NODE_ENV === 'production', // Use secure cookies only in production
+    sameSite: 'None', // Allows cookies in cross-site contexts
+  });
+
   return res.json({ token });
 }
 
