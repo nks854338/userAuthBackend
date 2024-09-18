@@ -37,7 +37,13 @@ async function handleUserLogin(req, res) {
   return res.json({ token });
 }
 
+async function getAllUser(req, res) {
+  const user = await User.find({});
+  res.status(201).send("all user", user);
+}
+
 module.exports = {
   handleUserSignUp,
   handleUserLogin,
+  getAllUser,
 };
