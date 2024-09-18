@@ -3,7 +3,12 @@ const User = require("../models/user");
 const { setUser } = require("../service/auth");
 
 async function landing(req, res) {
-  res.send("Hello World!");
+  try {
+    const getAllUsers = await User.find({ "name": "nk",});
+    res.status(201).send(getAllUsers);
+  } catch (error) {
+    res.status(400).send(error);
+  }
 }
 
 async function handleUserSignUp(req, res) {
