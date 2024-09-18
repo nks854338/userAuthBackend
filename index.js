@@ -9,12 +9,7 @@ import bodyParser from "body-parser";
 
 const port = process.env.PORT || 5000;
 
-app.use(cors({
-  origin: "https://user-auth-frontend-nine.vercel.app",
-  methods: ['GET', 'POST'],
-  credentials: true, 
-  allowedHeaders: "Content-Type, Authorization",
-}));
+app.use(cors());
 
 app.options('*', cors()); 
 
