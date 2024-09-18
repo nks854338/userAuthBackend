@@ -6,7 +6,6 @@ async function landing(req, res) {
   res.send("Hello World!");
 }
 
-
 async function handleUserSignUp(req, res) {
   const { name, email, password } = req.body;
 

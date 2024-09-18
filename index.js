@@ -9,7 +9,7 @@ const port = 5000;
 
 app.use(cors());
 app.options("*", cors());
-app.use("/user", userRoute);
+app.use("/", userRoute);
 
 mongoose
   .connect("mongodb+srv://nks854338:Nandani50%25@students.a0ydx.mongodb.net/userAuth")
