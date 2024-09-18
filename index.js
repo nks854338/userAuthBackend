@@ -1,10 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const userRoute = require("./routes/user");
 
 const app = express();
+
 const port = 5000;
 
 app.use(cors());
@@ -16,8 +17,8 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("Mongo Error", err));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
