@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+import helmet from "helmet";
 const app = express();
 const cors = require("cors");
 const userRoute = require("./routes/user");
@@ -24,6 +25,8 @@ mongoose
   .catch((err) => console.log("Mongo Error", err));
 
 app.use(cors());
+app.use(helmet());
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/user", userRoute);
